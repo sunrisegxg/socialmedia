@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:app/components/navigationprovider.dart';
 import 'package:app/components/page_common.dart';
 import 'package:app/components/search.dart';
 import 'package:app/pages/bottom_app_bar_page/account_page.dart';
@@ -7,6 +8,7 @@ import 'package:app/pages/bottom_app_bar_page/home_page.dart';
 import 'package:app/pages/detailed_page/chat_page.dart';
 import 'package:app/pages/detailed_page/search_page.dart';
 import 'package:app/services/auth/auth_service.dart';
+import 'package:app/services/auth/main_page.dart';
 import 'package:app/services/chat/chat_service.dart';
 import 'package:app/shimmer/shimmer_user.dart';
 import 'package:app/shimmer/shimmer_user_column.dart';
@@ -119,13 +121,7 @@ class _MyMessagePageState extends State<MyMessagePage> {
               var userData = snapshot.data!.data() as Map<String, dynamic>;
               return InkWell(
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => MyAccountPage(initialTabIndex: 0,)),
-                  // ).then((value) {
-                  //   // Sau khi quay trở lại từ trang chứa GNav, cập nhật selectedIndex
-                  //   CommonPage.updateSelectedIndex(context, 3);
-                  // });
+                  Provider.of<NavigationProvider>(context, listen: false).updateIndex(3);
                 },
                 child: isLoading
                     ? Padding(

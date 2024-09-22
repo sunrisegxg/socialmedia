@@ -1,6 +1,8 @@
 
 import 'dart:io';
 
+import 'package:app/components/navigationprovider.dart';
+import 'package:app/components/page_common.dart';
 import 'package:app/intro/onboarding_screen.dart';
 import 'package:app/pages/bottom_app_bar_page/message_page.dart';
 import 'package:app/pages/detailed_page/chat_page.dart';
@@ -35,6 +37,7 @@ void main() async {
       providers: [
         ChangeNotifierProvider(create: (context) => ThemeProvider()),
         ChangeNotifierProvider(create: (context) => ChatPageActiveProvider()),
+        ChangeNotifierProvider(create: (context) => NavigationProvider()),
         // Thêm các provider khác nếu cần
       ],
       child: MyApp(onboarding: onboarding),
